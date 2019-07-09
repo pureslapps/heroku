@@ -5,7 +5,11 @@ enable "sessions"
 class User < ActiveRecord::Base
 end
 
-ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
+#LOCAL
+#ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
+#HEROKU
+require "active_record"
+ActiveRecord::Base.establish_connection(ENV["postgres://wlremhojbkyxcg:1260e13cbf10b63e76b11b4eb80d7f455f2aa6696a08b90aaad8f777e77467b9@ec2-50-19-222-129.compute-1.amazonaws.com:5432/d8j4ecgvedle9s"])
 
 
 get "/" do
